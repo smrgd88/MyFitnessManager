@@ -23,6 +23,19 @@
 	
 	<context:component-scan base-package="com.mfm.fitness" />
 	
+	<beans:bean id="multipartResolver"
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<beans:property name="defaultEncoding" value="utf-8" />
+		<!-- 1024*1024*10 bytes 10MB -->
+		<beans:property name="maxUploadSize" value="104857560"/>
+		<!-- 1024*1024*2 bytes 2MB -->
+		<beans:property name="maxUploadSizePerFile"	value="2097152" />
+		<beans:property name="maxInMemorySize" value="10485756" />
+	</beans:bean>
 	
+	<beans:bean id="uploadPath" class="java.lang.String">
+		<beans:constructor-arg value="/C:/upload/tmp">
+		</beans:constructor-awrg>
+	</beans:bean>
 	
 </beans:beans>
