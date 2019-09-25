@@ -11,9 +11,7 @@
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
 	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
 	crossorigin="anonymous">
-	
 	<script src="/fitness/resources/js/jquery-3.4.1.min.js">
-		
 	</script>
 <title>MFM</title>
 
@@ -69,15 +67,15 @@
 					M<small class="text-warning"> anager</small>
 				</h1>
 				<!-- 여기에는 버튼 들어갈꺼임. -->
-				
+				<input type="button" id="arm" value="arm">
 				
 			</div>
 		</div>
 	</div>
 </div>
 
-<div class="bg-secondary" disabled="true">
-	<div class="container" id="secpage">
+<div class="bg-secondary"  visibility="false" id="secpage">
+	<div class="container"  >
 		<div class="row height align-items-center">
 			<div class="col">
 				<h1 class="text-light font-italic">
@@ -118,6 +116,13 @@ $(window).on('load',function(e){
 	console.log("test");
 	$("#loading").hide();
 })
+
+$(document).ready(function(){
+	$("#arm").click(function(e){
+		$("#secpage").hide();
+	})
+})
+
 
 </script>
 </body>
