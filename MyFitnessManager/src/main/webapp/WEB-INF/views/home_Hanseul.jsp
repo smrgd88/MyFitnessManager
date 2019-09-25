@@ -29,7 +29,7 @@
 		height: 5px;
 		border-radius: 30px;
 		background: #000;
-		transition : all .35s;
+		transition : all 1s;
 	}
 	input[id="menuicon"] + label span:ntn-child(1){
 		top:0;
@@ -53,6 +53,16 @@
 		transform:translateY(50%) rotate(-45deg);
 	}
 	
+	.area{
+		width: 500px;
+		height: 500px;
+		transition : all 1s;
+	}
+	.height{
+		height:80vh;
+	}
+	
+	
 </style>
 <script type="text/javascript">
 </script>
@@ -63,6 +73,20 @@
 	<span></span>
 	<span></span>
 </label>
+
+<div class = "container">
+	<div class = "row height">
+		<div class = "col bg-danger">
+			<img alt="anatomy" src="./image/anatomy.jpg">	
+		</div>
+		<div class = "col bg-primary">
+		col bg-primary
+		</div>
+		<div class = "col bg-warning">
+		col bg-warning
+		</div>
+	</div>
+</div>
 
  <!-- first Popper.js, then Bootstrap JS -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
