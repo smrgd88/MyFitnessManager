@@ -12,7 +12,7 @@
 	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
 	crossorigin="anonymous">
 	
-	<script src="/fitness/resources/js/jquery-3.4.1.min.js">
+	<script src="/fitness/resources/vendor/js/jquery.min.js">
 		
 	</script>
 <title>MFM</title>
