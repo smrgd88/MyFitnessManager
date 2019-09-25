@@ -77,7 +77,7 @@
 <div class = "container">
 	<div class = "row height">
 		<div class = "col bg-danger">
-			<img alt="anatomy" src="/resources/image/anatomy.jpg">	
+			<img alt="anatomy" src="${contextPath}/resources/anatomy.jpg">	
 		</div>
 		<div class = "col bg-primary">
 		col bg-primary
