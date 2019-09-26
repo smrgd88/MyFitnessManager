@@ -13,10 +13,10 @@
 
 <!-- Custom Fonts -->
 <link
-	href="/board/resources/vendor/font-awesome/css/font-awesome.min.css"
+	href="${contextPath}/resources/vendor/font-awesome/css/font-awesome.min.css"
 	rel="stylesheet" type="text/css">
 
-<script src="/board/resources/vendor/jquery/jquery.min.js"></script>
+<script src="${contextPath}/resources/vendor/jquery/jquery.min.js"></script>
 
 <div class="container">
 
@@ -36,26 +36,26 @@
 			
 			<!-- /.panel-heading -->
 			<div class="panel-body">
-					<div class="form-group">
+					<%-- <div class="form-group">
 						<label>Bno</label> <input class="form-control" name='bno'
 							value="${board.bno}" readonly="readonly">
-					</div>
+					</div> --%>
 
 					<div class="form-group">
 						<label>Title</label> <input class="form-control" name='title'
-							value="${board.title}" readonly="readonly">
+							value="${board.btitle}" readonly="readonly">
 					</div>
 
 
 					<div class="form-group">
 						<label>Text area</label>
 						<textarea class="form-control" rows="3" name='content'
-							readonly="readonly">${board.content }</textarea>
+							readonly="readonly">${board.bcontext }</textarea>
 					</div>
 
 					<div class="form-group">
 						<label>Writer</label> <input class="form-control" name='writer'
-							value="${board.writer}" readonly="readonly">
+							value="${board.bwriter}" readonly="readonly">
 					</div>
 
 					<button data-oper='modify' class="btn btn-default">Modify</button>
@@ -71,6 +71,8 @@
 					<input type='hidden' name='keyword'	value='<c:out value="${cri.keyword }"/>'>
 					<input type="hidden" class="form-control" name='bno' id="bno"
 							value="${board.bno}">
+				    <input type="hidden" name="bgno" value=${board.bgno }>
+							
 				</form>
 			</div>
 			<!--  end panel-body -->
@@ -91,10 +93,11 @@
 		var operForm = $("#operForm");
 		
 		$("button[data-oper='modify']").on("click", function(e) {
-			operForm.attr("action", "/board/boards/modify").submit();
+			operForm.attr("action", "${contextPath}/boards/modify").submit();
 		});
 		$("button[data-oper='list']").on("click", function(e) {
-			operForm.attr("action", "/board/boards/list2").submit();
+			//operForm.attr("action", "${contextPath}/boards/list").submit();
+			history.back();
 		});
 	});
 </script>

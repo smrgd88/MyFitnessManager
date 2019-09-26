@@ -18,8 +18,8 @@
 			value="oracle.jdbc.driver.OracleDriver" />
 		<property name="jdbcUrl"
 			value="jdbc:oracle:thin:@localhost:1521:XE" />
-		<property name="username" value="scott" />
-		<property name="password" value="tiger" />
+		<property name="username" value="mfm" />
+		<property name="password" value="mfm" />
 	</bean>
 
 	<bean id="dataSource" class="com.zaxxer.hikari.HikariDataSource"
@@ -39,4 +39,7 @@
 	</bean>
 
 	<tx:annotation-driven />
+	
+	<mybatis-spring:scan base-package="com.mfm.board.mapper" />
+	
 </beans>

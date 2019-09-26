@@ -8,16 +8,16 @@
 
 
 <!-- Bootstrap Core CSS -->
-<link href="/board/resources/vendor/bootstrap/css/bootstrap.min.css?1"
+<link href="${contextPath}/resources/vendor/bootstrap/css/bootstrap.min.css?1"
 	rel="stylesheet">
 
 
 <!-- Custom Fonts -->
 <link
-	href="/board/resources/vendor/font-awesome/css/font-awesome.min.css"
+	href="${contextPath}/resources/vendor/font-awesome/css/font-awesome.min.css"
 	rel="stylesheet" type="text/css">
 
-<script src="/board/resources/vendor/jquery/jquery.min.js"></script>
+<script src="${contextPath}/resources/vendor/jquery/jquery.min.js"></script>
 <div class="container">
 <div class="row">
 	<div class="col-lg-12">
@@ -36,43 +36,39 @@
 			<div class="panel-body">
 
 				<form role="form" id="operForm" action="${contextPath}/boards/modify" method="post">
-				<input type="hidden" class="form-control" name='pageNum'
-							value="${cri.pageNum}">
-				<input type="hidden" class="form-control" name='amount'
-							value="${cri.amount}">
+				<input type="hidden" class="form-control" name='pageNum' value="${cri.pageNum}">
+				<input type="hidden" class="form-control" name='amount'	value="${cri.amount}">
 				<input type='hidden' name='type' value='<c:out value="${cri.type }"/>'>
-				<input type='hidden' name='keyword'	value='<c:out value="${cri.keyword }"/>'>
-							
-					<div class="form-group">
-						<label>Bno</label> <input class="form-control" name='bno' id="bno"
-							value="${board.bno}" readonly="readonly">
-					</div>
+				<input type='hidden' name='keyword'	value='<c:out value="${cri.keyword }"/>'>		
+				<input type="hidden" name='bno' id="bno" value="${board.bno}">
+				<input type="hidden" name="bgno" value=${board.bgno }>
+				
 
 					<div class="form-group">
 						<label>Title</label> <input class="form-control" name='title'
-							value="${board.title}">
+							value="${board.btitle}">
 					</div>
 
 
 					<div class="form-group">
 						<label>Text area</label>
-						<textarea class="form-control" rows="3" name='content'>${board.content }</textarea>
+						<textarea class="form-control" rows="3" name='content'>${board.bcontext }</textarea>
 					</div>
 
 					<div class="form-group">
 						<label>Writer</label> <input class="form-control" name='writer'
-							value="${board.writer}" readonly="readonly">
+							value="${board.bwriter}" readonly="readonly">
 					</div>
 
-					<div class="form-group">
+				<%-- 	<div class="form-group">
 						<label>RegDate</label> <input class="form-control" name='regDate'
-							value='<fmt:formatDate pattern ="yyyy/MM/dd" value="${board.regdate}"/>' readonly="readonly">
+							value='<fmt:formatDate pattern ="yyyy/MM/dd" value="${board.bdate}"/>' readonly="readonly">
 					</div>
 
 					<div class="form-group">
 						<label>Update Date</label> <input class="form-control" name='updateDate'
 							value='<fmt:formatDate pattern ="yyyy/MM/dd" value="${board.updateDate}"/>' readonly="readonly">
-					</div>
+					</div> --%>
 
 
 					<button type="submit" data-oper='modify' class="btn btn-default">Modify</button>

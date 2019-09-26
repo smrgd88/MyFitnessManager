@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.mfm.board.mapper.BoardMapper">
+
+	<sql id="criteria">
+		<trim prefix="(" suffix=") AND " prefixOverrides="OR">
+			<foreach collection="typeArr" item='type'>
+				<trim prefix="OR">
+					<choose>
+						<when test="type=='T'.toString()">
+							btitle like '%'||#{keyword}||'%'
+						</when>
+						<when test="type=='C'.toString()">
+							bcontext like '%'||#{keyword}||'%'
+						</when>
+						<when test="type=='W'.toString()">
+							bwriter like '%'||#{keyword}||'%'
+						</when>
+					</choose>
+				</trim>
+			</foreach>
+		</trim>
+	</sql>
+	
+	<!-- <sql id="criteria2">
+			<foreach collection="typeArr" item='type'>
+					<choose>
+						<when test="type=='T'.toString()">
+							title from tbl_board where btitle like '%'||#{keyword}||'%'
+						</when>
+						<when test="type=='C'.toString()">
+							content from tbl_board where bcontext like '%'||#{keyword}||'%'
+						</when>
+						<when test="type=='W'.toString()">
+							writer from tbl_board where bwriter like '%'||#{keyword}||'%'
+						</when>
+					</choose>
+			</foreach>
+	</sql> -->
+
+	<select id="list" resultType="com.mfm.board.model.BoardVO">
+	<![CDATA[	select * from(
+		select /*+INDEX_DESC(tbl_board TBL_BOARD_PK)*/
+		rownum rn,bno,btitle,bcontext,bwriter,bdate,breadcount,bgno
+		from tbl_board
+		where bgno=#{bgno} and 
+		]]>
+
+		<include refid="criteria"></include>
+		
+		 <![CDATA[rownum<=#{pageNum}*#{amount}) where rn>(#{pageNum}-1)*#{amount}]]>
+	</select>
+
+	<select id="count" resultType="int">
+		select count(*) from tbl_board where bgno = #{bgno} and 
+		<include refid="criteria"></include>
+		bno > 0
+	</select>
+	
+	
+	<select id="read" resultType="com.mfm.board.model.BoardVO">
+		select * from tbl_board where bno = #{bno}
+	</select>
+		
+		
+	<select id="grouplist" resultType="com.mfm.board.model.BoardGroupVO">
+		select * from tbl_boardgroup where bgno = #{bgno}
+	</select>
+	
+	<insert id="insertSelectKey">
+		<selectKey keyProperty="bno" order="BEFORE"
+			resultType="Long">
+			select tbl_board_seq.nextval from dual
+		</selectKey>
+		insert into tbl_board(bno, btitle, bcontext, bwriter, bgno) values(#{bno},
+		#{btitle}, #{bcontext}, #{bwriter}, #{bgno})
+	</insert>	
+		
+	<delete id="remove">
+		delete from tbl_board where bno =#{bno}
+	</delete>
+</mapper>

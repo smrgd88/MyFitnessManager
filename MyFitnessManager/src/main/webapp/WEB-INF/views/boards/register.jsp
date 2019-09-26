@@ -7,16 +7,16 @@
 
 
 <!-- Bootstrap Core CSS -->
-<link href="/board/resources/vendor/bootstrap/css/bootstrap.min.css?1"
+<link href="${contextPath}/resources/vendor/bootstrap/css/bootstrap.min.css?1"
 	rel="stylesheet">
 
 
 <!-- Custom Fonts -->
 <link
-	href="/board/resources/vendor/font-awesome/css/font-awesome.min.css"
+	href="${contextPath}/resources/vendor/font-awesome/css/font-awesome.min.css"
 	rel="stylesheet" type="text/css">
 
-<script src="/board/resources/vendor/jquery/jquery.min.js"></script>
+<script src="${contextPath}/resources/vendor/jquery/jquery.min.js"></script>
 
 <div class="container">
 <div class="row">
@@ -36,17 +36,18 @@
       <div class="panel-body">
 
         <form role="form" action="${contextPath}/boards/register" method="post">
+        <input type="hidden" name="bgno" value=${bgno }>
           <div class="form-group">
-            <label>Title</label> <input class="form-control" name='title'>
+            <label>Title</label> <input class="form-control" name='btitle'>
           </div>
 
           <div class="form-group">
             <label>Text area</label>
-            <textarea class="form-control" rows="3" name='content'></textarea>
+            <textarea class="form-control" rows="3" name='bcontext'></textarea>
           </div>
 
           <div class="form-group">
-            <label>Writer</label> <input class="form-control" name='writer'>
+            <label>Writer</label> <input class="form-control" name='bwriter'>
           </div>
           <button type="submit" class="btn btn-default">Submit
             Button</button>

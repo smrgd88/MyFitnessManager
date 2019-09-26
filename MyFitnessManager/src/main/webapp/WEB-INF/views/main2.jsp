@@ -12,7 +12,7 @@
 	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
 	crossorigin="anonymous">
 	
-	<script src="/fitness/resources/vendor/js/jquery.min.js">
+	<script src="/fitness/resources/vendor/jquery/jquery.min.js">
 		
 	</script>
 <title>MFM</title>
@@ -54,7 +54,8 @@
 
 <body>
 
-<div id="loading"><img id="loading-image" src="/fitness/resources/image/loading1.gif"></div>
+<!-- <div id="loading"><img id="loading-image" src="/fitness/resources/image/loading1.gif"></div> -->
+
 <div class="bg-primary" id="home">
 	<div class="container">
 		<div class="row height align-items-center">
@@ -69,6 +70,12 @@
 					M<small class="text-warning"> anager</small>
 				</h1>
 				<!-- 여기에는 버튼 들어갈꺼임. -->
+				
+				<input type="button" class="btn btn-warning" id="1" value="자유게시판">
+				
+				<input type="button" class="btn btn-warning" id="2" value="질문게시판">
+				
+				
 				
 				
 			</div>
@@ -114,10 +121,15 @@
 	</script>
 <script>
 
-$(window).on('load',function(e){
+$(window).on("load",function(e){
 	console.log("test");
 	$("#loading").hide();
 })
+
+$(".btn").on("click",function(){
+	var bgno = this.id; 
+	self.location = "${contextPath}/boards/list?board_no="+bgno;
+});
 
 </script>
 </body>
